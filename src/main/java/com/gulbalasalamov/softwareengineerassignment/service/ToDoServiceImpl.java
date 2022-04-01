@@ -1,9 +1,11 @@
 package com.gulbalasalamov.softwareengineerassignment.service;
 
 import com.gulbalasalamov.softwareengineerassignment.entity.ToDoItem;
-import com.gulbalasalamov.softwareengineerassignment.repository.ToDoRepository;
+import com.gulbalasalamov.softwareengineerassignment.repository.ToDoItemRepository;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,27 +13,33 @@ import java.util.Optional;
 
 @Service
 @FieldDefaults(level = AccessLevel.PRIVATE) // https://projectlombok.org/features/experimental/FieldDefaults
-public class ToDoServiceImpl implements ToDoService{
+public class ToDoServiceImpl implements ToDoService {
 
-    ToDoRepository toDoRepository;
+    Logger logger = LoggerFactory.getLogger(ToDoServiceImpl.class);
+    ToDoItemRepository toDoItemRepository;
 
-    public ToDoServiceImpl(ToDoRepository toDoRepository) {
-        this.toDoRepository = toDoRepository;
+    public ToDoServiceImpl(ToDoItemRepository toDoItemRepository) {
+        this.toDoItemRepository = toDoItemRepository;
     }
 
     @Override
     public List<ToDoItem> getToDos() {
-        return null;
+        return toDoItemRepository.findAll();
     }
 
     @Override
     public ToDoItem createNewToDo(ToDoItem toDoItem) {
-        return null;
+        toDoItemRepository.save(toDoItem);
+        return toDoItem;
     }
 
     @Override
     public void deleteToDo(Long id) {
-
+        try {
+            toDoItemRepository.deleteById(id);
+        } catch (Exception e) {
+            logger.error("deleteTodo {}", e.getMessage());
+        }
     }
 
     @Override
@@ -41,6 +49,6 @@ public class ToDoServiceImpl implements ToDoService{
 
     @Override
     public void save(ToDoItem toDoItem) {
-
+        toDoItemRepository.save(toDoItem);
     }
 }
