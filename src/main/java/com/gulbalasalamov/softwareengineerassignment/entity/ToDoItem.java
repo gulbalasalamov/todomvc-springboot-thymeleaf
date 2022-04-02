@@ -2,7 +2,6 @@ package com.gulbalasalamov.softwareengineerassignment.entity;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

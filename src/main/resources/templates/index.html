@@ -12,7 +12,7 @@
 <body>
 <section class="todoapp">
     <header class="header">
-        <h1>Todo List</h1>
+        <h1>ToDo List</h1>
         <h4>For adding please type and enter</h4>
         <form th:action="@{/}" method="post" th:object="${item}">
             <input class="new-todo" placeholder="What needs to be done on your list?" autofocus
@@ -26,7 +26,7 @@
             <label for="toggle-all">Mark all as complete</label>
         </form>
         <ul class="todo-list" th:remove="all-but-first">
-            <li th:insert="fragments :: todoItem(${item})" th:each="item : ${todos}" th:remove="tag">
+            <li th:insert="fragments :: toDoItem(${item})" th:each="item : ${todos}" th:remove="tag">
             </li>
             <li class="completed">
                 <div class="view">
