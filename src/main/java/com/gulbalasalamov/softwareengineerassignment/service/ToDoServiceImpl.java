@@ -46,7 +46,7 @@ public class ToDoServiceImpl implements ToDoService {
 
     @Override
     public Optional<ToDoItem> getToDo(Long id) {
-        return Optional.empty();
+        return toDoItemRepository.findById(id);
     }
 
     @Override

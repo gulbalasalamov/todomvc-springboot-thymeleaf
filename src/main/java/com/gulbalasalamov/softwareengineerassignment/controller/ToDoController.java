@@ -22,7 +22,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("api/v1/todo/")
+@RequestMapping("/")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ToDoController {
     Logger logger = LoggerFactory.getLogger(ToDoServiceImpl.class);
@@ -68,6 +68,5 @@ public class ToDoController {
             toDoService.save(todoItem);
         }
         return "redirect:/";
-
     }
 }
