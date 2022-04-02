@@ -6,6 +6,7 @@ import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.util.Streamable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,7 +25,8 @@ public class ToDoServiceImpl implements ToDoService {
 
     @Override
     public List<ToDoItem> getToDos() {
-        return toDoItemRepository.findAll();
+        //return (List<ToDoItem>) toDoItemRepository.findAll(); /
+        return Streamable.of(toDoItemRepository.findAll()).toList();
     }
 
     @Override
