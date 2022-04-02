@@ -18,6 +18,7 @@ public class ToDoItem {
     @Id //  the primary key and automatically populated by the JPA provider.
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
+
     String title;
     boolean isCompleted;
 
