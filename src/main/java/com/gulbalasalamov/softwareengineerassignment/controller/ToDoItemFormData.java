@@ -1,4 +1,4 @@
-package com.gulbalasalamov.softwareengineerassignment.entity;
+package com.gulbalasalamov.softwareengineerassignment.controller;
 
 import lombok.Getter;
 import lombok.Setter;

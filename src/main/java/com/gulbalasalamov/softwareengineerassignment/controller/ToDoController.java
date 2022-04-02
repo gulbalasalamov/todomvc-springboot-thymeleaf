@@ -1,7 +1,6 @@
 package com.gulbalasalamov.softwareengineerassignment.controller;
 
 import com.gulbalasalamov.softwareengineerassignment.entity.ToDoItem;
-import com.gulbalasalamov.softwareengineerassignment.entity.ToDoItemFormData;
 import com.gulbalasalamov.softwareengineerassignment.exceptions.NotFoundException;
 import com.gulbalasalamov.softwareengineerassignment.service.ToDoService;
 import com.gulbalasalamov.softwareengineerassignment.service.ToDoServiceImpl;
@@ -9,6 +8,7 @@ import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,11 +18,11 @@ import java.util.List;
 /**
  * To wrap repository with a web layer, you must turn to Spring MVC.
  * API layer: The class that have all resources for API
- * */
+ */
 
 
-@RestController
-@RequestMapping("api/v1/todo")
+@Controller
+@RequestMapping("api/v1/todo/")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ToDoController {
     Logger logger = LoggerFactory.getLogger(ToDoServiceImpl.class);
@@ -33,10 +33,10 @@ public class ToDoController {
     }
 
     @GetMapping()
-    public String mainPage(Model model){
-        model.addAttribute("item",new ToDoItemFormData());
-        model.addAttribute("todos",toDoService.getToDos());
-        model.addAttribute("totalNumberOfItems",toDoService.getToDos().size());
+    public String mainPage(Model model) {
+        model.addAttribute("item", new ToDoItemFormData());
+        model.addAttribute("todos", toDoService.getToDos());
+        model.addAttribute("totalNumberOfItems", toDoService.getToDos().size());
         return "index";
     }
 
@@ -69,7 +69,5 @@ public class ToDoController {
         }
         return "redirect:/";
 
-
-
-
+    }
 }
