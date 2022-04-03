@@ -7,9 +7,6 @@ This project is the full implementation of Spring Boot framework with given depe
 - H2 Database --> Provides a fast in-memory database that supports JDBC API and R2DBC access, with a small (2mb) footprint. Supports embedded and server modes as well as a browser based console application.
 ## Project Description
 
-The purpose of this app is to build an entire backend system. People that wants to be system user go through series of registration process and 
-once they verify their given email, then they become the application user with the role of user. 
-
 The ToDo app is a single page application using Spring Boot backend and Thymeleaf server-side rendered HTML page for frontend.
 
 ## Demo and Running .jar  
